@@ -1,5 +1,5 @@
 # Use an official Node runtime as a parent image
-FROM node:16
+FROM node:16.15.0
 
 # Set the working directory in the container
 WORKDIR /niti_chatbot/niti-client
