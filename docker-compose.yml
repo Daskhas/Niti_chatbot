@@ -1,0 +1,28 @@
+version: "3"
+services:
+  client:
+    build: ./niti-client
+    ports:
+      - "3000:3000"
+    working_dir: /niti_chatbot/niti-client
+    volumes:
+      - ./niti-client:/niti_chatbot/niti-client
+    
+
+  server:
+    build: ./server
+    ports:
+      - "3500:3500"
+    working_dir: /niti_chatbot/server
+    volumes:
+      - ./server:/niti_chatbot/server
+    env_file:
+      - ./server/.env
+
+  worker:
+    build: ./worker
+    working_dir: /niti_chatbot/worker
+    volumes:
+      - ./worker:/niti_chatbot/worker
+    env_file:
+      - ./worker/.env
